@@ -15,7 +15,7 @@ typedef struct Position_t {
   double camy;
 } Position;
 
-Position p = {2.5, 2.5, -1.0, 0.0, 0.0, 0.66};
+Position p = {2.5, 2.5, 1.0, 0.0, 0.0, 0.66};
 
 double lookspeed = 0.03;
 double movespeed = 0.03;
@@ -123,9 +123,9 @@ void keyboard(int* look, int* movex, int* movey) {
   }
 
   if (P_KeyDown(SDL_SCANCODE_D)) {
-    *movey = 1;
-  } else if (P_KeyDown(SDL_SCANCODE_A)) {
     *movey = -1;
+  } else if (P_KeyDown(SDL_SCANCODE_A)) {
+    *movey = 1;
   } else {
     *movey = 0;
   }
@@ -149,11 +149,11 @@ int main() {
 
     if (look) {
       double olddirx = p.dirx;
-      p.dirx = olddirx * cos(-lookspeed*look) - p.diry * sin(-lookspeed*look);
-      p.diry = olddirx * sin(-lookspeed*look) + p.diry * cos(-lookspeed*look);
+      p.dirx = olddirx * cos(lookspeed*look) - p.diry * sin(lookspeed*look);
+      p.diry = olddirx * sin(lookspeed*look) + p.diry * cos(lookspeed*look);
       double oldcamx = p.camx;
-      p.camx = oldcamx * cos(-lookspeed*look) - p.camy * sin(-lookspeed*look);
-      p.camy = oldcamx * sin(-lookspeed*look) + p.camy * cos(-lookspeed*look);
+      p.camx = oldcamx * cos(lookspeed*look) - p.camy * sin(lookspeed*look);
+      p.camy = oldcamx * sin(lookspeed*look) + p.camy * cos(lookspeed*look);
     }
 
     if (movex) {
