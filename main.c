@@ -156,6 +156,12 @@ int main() {
       p.camy = oldcamx * sin(lookspeed*look) + p.camy * cos(lookspeed*look);
     }
 
+    if (P_KeyDown(SDL_SCANCODE_LSHIFT) || P_KeyDown(SDL_SCANCODE_RSHIFT)) {
+        movespeed = 0.06;
+    } else {
+        movespeed = 0.03;
+    }
+
     if (movex) {
       double newx = p.x + p.dirx * movespeed * movex;
       double newy = p.y + p.diry * movespeed * movex;
