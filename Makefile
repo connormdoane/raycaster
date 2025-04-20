@@ -1,2 +1,2 @@
 raycaster:
-	gcc -g -O3 -lSDL2 main.c -o run
+	gcc -g -O0 -lSDL2 -lm main.c -o run
