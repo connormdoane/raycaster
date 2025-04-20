@@ -89,6 +89,9 @@ void render() {
     switch(hit) {
     case 1: c = (P_Color){255, 0, 0, 255};break;
     case 2: c = (P_Color){0, 255, 0, 255};break;
+    case 3: c = (P_Color){0, 0, 255, 255};break;
+    case 4: c = (P_Color){0, 255, 255, 255};break;
+    case 5: c = (P_Color){255, 255, 0, 255};break;
     default: c = (P_Color){255, 255, 255, 255};break;
     }
 
@@ -132,6 +135,7 @@ int main() {
   P_Create("Raycaster", 500, 400, w, h);
 
   init_map(0);
+  load_map("maps/map1");
 
   int look = 0;
   int movex = 0;
