@@ -134,7 +134,7 @@ void keyboard(int* look, int* movex, int* movey) {
 int main() {
   P_Create("Raycaster", 500, 400, w, h);
 
-  init_map(0);
+  init_map();
   load_map("maps/map1");
 
   int look = 0;
